@@ -10,7 +10,7 @@ import SwiftUI
 struct Information: Identifiable {
     let id = UUID()
     var task: String
-    var type: String
+    var type: Color
     var completed: Bool = false
 }
 
@@ -33,23 +33,29 @@ struct TaskView: View {
         !taskInput.isEmpty
     }
     
+    init() {
+        // Initialize
+        todos = [
+            Information(task: "Bajar el perro a lavar", type: typeOfTask[1])
+        ]
+    }
+    
     var body: some View {
         VStack {
             HStack {
-                
-                TextField("Task", text: $taskInput)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Picker("Select a color", selection: $selectedType) {
-                    ForEach(0 ..< typeOfTask.count, id: \.self) { todo in
-                        Text(self.difficulties[todo])
-                            .foregroundColor(self.typeOfTask[todo])
-                            .tag(self.typeOfTask[todo])
+                    TextField("Task", text: $taskInput)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Picker("Select a color", selection: $selectedType) {
+                                ForEach(0 ..< typeOfTask.count, id: \.self) { todo in
+                                    Text(self.difficulties[todo])
+                                        .foregroundColor(self.typeOfTask[todo])
+                                        .tag(self.typeOfTask[todo])
+                                }
                     }
-                }
-                .pickerStyle(.wheel)
-                .foregroundColor(.white)
-            }
+                            .pickerStyle(MenuPickerStyle())
+                            .foregroundColor(.white)
+            
+        }
             .padding()
             
 //            The "SEND" Button
@@ -62,7 +68,7 @@ struct TaskView: View {
                     .foregroundColor(.white)
                     .padding()
                     .background(available ? Color.blue : Color.gray)
-                    .cornerRadius(20)
+                    .cornerRadius(15)
             }
             .disabled(!available)
             
