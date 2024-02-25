@@ -14,6 +14,7 @@
 		3A83E0132B8AC670005C0108 /* to_doTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E0122B8AC670005C0108 /* to_doTests.swift */; };
 		3A83E01D2B8AC670005C0108 /* to_doUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E01C2B8AC670005C0108 /* to_doUITests.swift */; };
 		3A83E01F2B8AC670005C0108 /* to_doUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E01E2B8AC670005C0108 /* to_doUITestsLaunchTests.swift */; };
+		3A83E02C2B8ACE7E005C0108 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E02B2B8ACE7E005C0108 /* TaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3A83E0182B8AC670005C0108 /* to-doUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "to-doUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A83E01C2B8AC670005C0108 /* to_doUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_doUITests.swift; sourceTree = "<group>"; };
 		3A83E01E2B8AC670005C0108 /* to_doUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_doUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3A83E02B2B8ACE7E005C0108 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				3A83E0012B8AC66F005C0108 /* to_doApp.swift */,
 				3A83E0032B8AC66F005C0108 /* ContentView.swift */,
+				3A83E02B2B8ACE7E005C0108 /* TaskView.swift */,
 				3A83E0052B8AC670005C0108 /* Assets.xcassets */,
 				3A83E0072B8AC670005C0108 /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A83E02C2B8ACE7E005C0108 /* TaskView.swift in Sources */,
 				3A83E0042B8AC66F005C0108 /* ContentView.swift in Sources */,
 				3A83E0022B8AC66F005C0108 /* to_doApp.swift in Sources */,
 			);
