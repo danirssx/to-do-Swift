@@ -19,10 +19,10 @@ struct TaskView: View {
     
     // Data
     var typeOfTask: [Color] = [
-        Color.red, Color.yellow, Color.blue
+        Color.indigo, Color.blue, Color.cyan
     ]
     let difficulties: [String] = ["Easy", "Medium", "Hard"]
-    @State private var selectedType: Color = .red
+    @State private var selectedType: Color = .indigo
 
     // Functionality
     @State private var taskInput: String = ""
