@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A801D042B8C301C00E9CC90 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A801D032B8C301C00E9CC90 /* ListView.swift */; };
 		3A83E0022B8AC66F005C0108 /* to_doApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E0012B8AC66F005C0108 /* to_doApp.swift */; };
 		3A83E0042B8AC66F005C0108 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E0032B8AC66F005C0108 /* ContentView.swift */; };
 		3A83E0062B8AC670005C0108 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A83E0052B8AC670005C0108 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A801D032B8C301C00E9CC90 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		3A83DFFE2B8AC66F005C0108 /* to-do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "to-do.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A83E0012B8AC66F005C0108 /* to_doApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_doApp.swift; sourceTree = "<group>"; };
 		3A83E0032B8AC66F005C0108 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				3A83E0012B8AC66F005C0108 /* to_doApp.swift */,
 				3A83E0032B8AC66F005C0108 /* ContentView.swift */,
+				3A801D032B8C301C00E9CC90 /* ListView.swift */,
 				3A83E02B2B8ACE7E005C0108 /* TaskView.swift */,
 				3A83E0052B8AC670005C0108 /* Assets.xcassets */,
 				3A83E0072B8AC670005C0108 /* Preview Content */,
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A801D042B8C301C00E9CC90 /* ListView.swift in Sources */,
 				3A83E02C2B8ACE7E005C0108 /* TaskView.swift in Sources */,
 				3A83E0042B8AC66F005C0108 /* ContentView.swift in Sources */,
 				3A83E0022B8AC66F005C0108 /* to_doApp.swift in Sources */,

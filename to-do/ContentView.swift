@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var todos: [Information] = []
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            TaskView(todos: $todos)
+        }.onChange(of: todos) {
+            newValue in
+            print("Todos changed: \(newValue)")
         }
-        .padding()
     }
 }
 

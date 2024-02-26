@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Information: Identifiable {
+struct Information: Identifiable, Equatable {
     let id = UUID()
     var task: String
     var type: Color
@@ -15,6 +15,7 @@ struct Information: Identifiable {
 }
 
 struct TaskView: View {
+    @Binding var todos: [Information]
     
     // Data
     var typeOfTask: [Color] = [
@@ -25,20 +26,12 @@ struct TaskView: View {
 
     // Functionality
     @State private var taskInput: String = ""
-    @State private var typeInput: String = ""
-    
-    @State private var todos: [Information] = []
     
     private var available: Bool {
         !taskInput.isEmpty
     }
     
-    init() {
-        // Initialize
-        todos = [
-            Information(task: "Bajar el perro a lavar", type: typeOfTask[1])
-        ]
-    }
+
     
     var body: some View {
         VStack {
@@ -61,7 +54,9 @@ struct TaskView: View {
 //            The "SEND" Button
             
             Button(action: {
+                self.addTodo()
                 print("Task: \(taskInput)")
+                print("\(todos)")
             }) {
                 Text("Send")
                     .bold()
@@ -74,10 +69,19 @@ struct TaskView: View {
             
         }
     }
-}
-
-struct TaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskView()
+    
+    
+    
+    func addTodo() {
+        todos.append(Information(task: taskInput, type: selectedType))
+        // Clear Input
+        taskInput = ""
     }
+    
 }
+//
+//struct TaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TaskView(todos: $todos)
+//    }
+//}
