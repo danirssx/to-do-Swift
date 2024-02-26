@@ -10,10 +10,8 @@ import SwiftUI
 struct ListView: View {
     @Binding var todos: [Information]
     
-//    @State var todos: [Information] = [Information(task: "Lavar perros", type: Color.indigo), Information(task: "Regar las matas", type: Color.blue), Information(task: "Lavar el carro", type: Color.cyan)]
-
     var body: some View {
-        VStack {
+        NavigationView {
             List {
                 
                 ForEach(0 ..< todos.count, id: \.self) { todo in
@@ -28,19 +26,21 @@ struct ListView: View {
                         
                         // Text Displayed
                         Text(self.todos[todo].task)
-                            .foregroundColor(self.todos[todo].completed ? Color.black : Color.gray)
+                            .foregroundColor(self.todos[todo].completed ? Color.primary : Color.gray)
                             .tag(self.todos[todo].task)
-                
+                        
                     }
                     .listRowBackground(self.todos[todo].completed ?  self.todos[todo].type.opacity(0.5) : self.todos[todo].type.opacity(0.2))
-                                }
-
-            }.cornerRadius(20)
-                .padding()
-            
+                }
+                
+            }
             
         }
+        .cornerRadius(20)
+        .padding()
+        
     }
+    
 }
 //
 //struct ListView_Previews: PreviewProvider {
