@@ -5,6 +5,8 @@
 //  Created by Daniel Ross on 2/25/24.
 //
 
+// Here you can find the list displayed
+
 import SwiftUI
 
 struct ListView: View {
@@ -13,33 +15,44 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                
-                ForEach(0 ..< todos.count, id: \.self) { todo in
+                ForEach(todos) { todo in
                     HStack {
-                        // Checkmark
+                        // CheckMark
                         Button(action: {
-                            self.todos[todo].completed.toggle()
+                            markAsCompleted(todo)
                         }) {
-                            Image(systemName: self.todos[todo].completed ? "checkmark.square.fill" : "square")
+                            Image(systemName: todo.completed ? "checkmark.square.fill" : "square")
                                 .foregroundColor(Color.blue)
                         }
                         
-                        // Text Displayed
-                        Text(self.todos[todo].task)
-                            .foregroundColor(self.todos[todo].completed ? Color.primary : Color.gray)
-                            .tag(self.todos[todo].task)
-                        
+                        Text(todo.task)
+                            .foregroundColor(todo.completed ? Color.primary : Color.gray)
+                            .tag(todo.task)
+                            
                     }
-                    .listRowBackground(self.todos[todo].completed ?  self.todos[todo].type.opacity(0.5) : self.todos[todo].type.opacity(0.2))
-                }
-                
+                    .listRowBackground(todo.completed ? todo.type.opacity(0.5) : todo.type.opacity(0.2))
+                    
+                }.onDelete(perform: delete)
             }
-            
         }
         .cornerRadius(20)
         .padding()
         
     }
+    
+    func markAsCompleted(_ todo: Information) {
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos[index].completed.toggle()
+        }
+}
+    
+    
+    func delete(at offsets: IndexSet) {
+        todos.remove(atOffsets: offsets)
+    }
+    
+
+    
     
 }
 //
@@ -47,4 +60,4 @@ struct ListView: View {
 //    static var previews: some View {
 //        ListView()
 //    }
-//}
+//

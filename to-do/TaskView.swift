@@ -5,6 +5,8 @@
 //  Created by Daniel Ross on 2/24/24.
 //
 
+// This is where you find the input View
+
 import SwiftUI
 
 struct Information: Identifiable, Equatable {
@@ -38,6 +40,9 @@ struct TaskView: View {
             HStack {
                     TextField("Task", text: $taskInput)
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .onSubmit {
+                                    addTodo()
+                                }
                     Picker("Select a color", selection: $selectedType) {
                                 ForEach(0 ..< typeOfTask.count, id: \.self) { todo in
                                     Text(self.difficulties[todo])
@@ -54,7 +59,7 @@ struct TaskView: View {
 //            The "SEND" Button
             
             Button(action: {
-                self.addTodo()
+                addTodo()
                 print("Task: \(taskInput)")
                 print("\(todos)")
             }) {

@@ -5,6 +5,8 @@
 //  Created by Daniel Ross on 2/24/24.
 //
 
+// This is the main View, all the important info it's right here
+
 import SwiftUI
 
 struct ContentView: View {
@@ -18,9 +20,6 @@ struct ContentView: View {
                 TaskView(todos: $todos)
                     .padding()
                 ListView(todos: $todos)
-            }.onChange(of: todos) {
-                newValue in
-                print("Todos changed: \(newValue)")
             }
             .navigationTitle("To-Do App")
         }
@@ -30,6 +29,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environment(\.colorScheme, .dark)
     }
 }
