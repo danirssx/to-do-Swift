@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     @State var todos: [Information] = [Information(task: "Lavar perros", type: Color.indigo), Information(task: "Regar las matas", type: Color.blue), Information(task: "Lavar el carro", type: Color.cyan)]
     
+    @State var selectedItem: UUID?
     
     var body: some View {
         
@@ -19,7 +20,7 @@ struct ContentView: View {
             VStack {
                 TaskView(todos: $todos)
                     .padding()
-                ListView(todos: $todos)
+                ListView(todos: $todos, selectedItem: $selectedItem)
             }
             .navigationTitle("To-Do App")
         }

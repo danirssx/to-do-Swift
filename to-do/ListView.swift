@@ -11,26 +11,44 @@ import SwiftUI
 
 struct ListView: View {
     @Binding var todos: [Information]
+    @Binding var selectedItem: UUID?
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(todos) { todo in
-                    HStack {
-                        // CheckMark
-                        Button(action: {
-                            markAsCompleted(todo)
-                        }) {
-                            Image(systemName: todo.completed ? "checkmark.square.fill" : "square")
-                                .foregroundColor(Color.blue)
-                        }
-                        
-                        Text(todo.task)
-                            .foregroundColor(todo.completed ? Color.primary : Color.gray)
-                            .tag(todo.task)
+                        HStack {
+                            HStack {
+                                Button(action: {}) {
+                                    Image(systemName: todo.completed ? "checkmark.square.fill" : "square")
+                                        .foregroundColor(Color.blue)
+                                }
+                            }.overlay(
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .contentShape(Rectangle())
+                                    .onTapGesture { markAsCompleted(todo) }
+                                )
+                            // CheckMark
                             
-                    }
-                    .listRowBackground(todo.completed ? todo.type.opacity(0.5) : todo.type.opacity(0.2))
+                            HStack {
+                                NavigationLink(destination: ElemView(todos: $todos, selectedItem: indexOfTodo(todo), item: todo))
+                                {
+                                    Text(todo.task)
+                                        .foregroundColor(todo.completed ? Color.primary : Color.gray)
+                                        .tag(todo.task)
+                                }
+                            
+                        }
+                            .overlay(
+                            Rectangle()
+                                .fill(Color.clear)
+                                .contentShape(Rectangle())
+                            )
+                    
+                    }.listRowBackground(todo.completed ? todo.type.opacity(0.5) : todo.type.opacity(0.2))
+                 
+                        // Aqui corta
                     
                 }.onDelete(perform: delete)
             }
@@ -38,6 +56,11 @@ struct ListView: View {
         .cornerRadius(20)
         .padding()
         
+    }
+    
+    func indexOfTodo(_ list: Information) -> Binding<UUID?> {
+        self.selectedItem = list.id
+        return $selectedItem
     }
     
     func markAsCompleted(_ todo: Information) {
