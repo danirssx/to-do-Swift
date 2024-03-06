@@ -17,41 +17,43 @@ struct ListView: View {
         NavigationView {
             List {
                 ForEach(todos) { todo in
+                    HStack {
                         HStack {
-                            HStack {
-                                Button(action: {}) {
-                                    Image(systemName: todo.completed ? "checkmark.square.fill" : "square")
-                                        .foregroundColor(Color.blue)
-                                }
-                            }.overlay(
-                                Rectangle()
-                                    .fill(Color.clear)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture { markAsCompleted(todo) }
-                                )
-                            // CheckMark
-                            
-                            HStack {
-                                NavigationLink(destination: ElemView(todos: $todos, selectedItem: indexOfTodo(todo), item: todo))
-                                {
-                                    Text(todo.task)
-                                        .foregroundColor(todo.completed ? Color.primary : Color.gray)
-                                        .tag(todo.task)
-                                }
-                            
-                        }
-                            .overlay(
+                            Button(action: {}) {
+                                Image(systemName: todo.completed ? "checkmark.square.fill" : "square")
+                                    .foregroundColor(Color.blue)
+                            }
+                        }.overlay(
                             Rectangle()
                                 .fill(Color.clear)
                                 .contentShape(Rectangle())
-                            )
-                    
+                                .onTapGesture { markAsCompleted(todo) }
+                        )
+                        // CheckMark
+                        
+//                        HStack {
+//                            NavigationLink(destination: ElemView(todos: $todos, selectedItem: indexOfTodo(todo), item: todo))
+//                            {
+//                                Text(todo.task)
+//                                    .foregroundColor(todo.completed ? Color.primary : Color.gray)
+//                                    .tag(todo.task)
+//                            }
+//                            
+//                        }
+//                        .overlay(
+//                            Rectangle()
+//                                .fill(Color.clear)
+//                                .contentShape(Rectangle())
+//                        )
+                        
                     }.listRowBackground(todo.completed ? todo.type.opacity(0.5) : todo.type.opacity(0.2))
-                 
-                        // Aqui corta
+                    
+                    // Aqui corta
                     
                 }.onDelete(perform: delete)
-            }
+                
+            }.navigationBarItems(trailing: EditButton())
+        
         }
         .cornerRadius(20)
         .padding()
