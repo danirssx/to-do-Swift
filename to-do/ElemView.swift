@@ -15,6 +15,7 @@ struct ElemView: View {
     
 //    Utilities
     @FocusState private var nameIsFocused: Bool
+    private var options = ["Urgent", "Not Urgent", "Maths"]
     
     
 //    Animations && Utilities
@@ -23,38 +24,67 @@ struct ElemView: View {
     var body: some View {
         NavigationView {
             Form {
+//                Title
+                
                 Section {
                     TextField("\(item.task)", text: self.$item.task)
-                        .font(.system(size: 25, design: .rounded))
+                        .font(.system(size: 20, design: .rounded))
                         .foregroundColor(Color(.systemGray2))
                         .disableAutocorrection(true)
                         .focused($nameIsFocused)
                     
                 } header: {
-                    Text("About")
-                }
-                
-                
-                Section {
-                    HStack(alignment: .center) {
-                        Spacer()
-                        Text("Tag")
-                        Image(systemName: "square")
-                        Image(systemName: "circle")
-                        Spacer()
-                        
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.green)
+                        Text("About")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .bold, design: .rounded))
+                            .bold()
                     }
                 }
+                
+//                Tag
+                
+                Section {
+                    Picker(selection: $item.tag, label: Text("Type of Task")) {
+                        ForEach(options, id: \.self) {
+                            option in
+                            Text(option)
+                        }
+                    }.pickerStyle(MenuPickerStyle())
+                } header: {
+
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .foregroundColor(.cyan)
+                        Text("Tag")
+                            .foregroundColor(.white)
+                            .font(.system(size: 15, weight: .bold, design: .rounded))
+                            .bold()
+                    }
+                }
+                
+//                Date Picker
                 
                 Section {
                     DatePicker(
                             "Start Date",
-                            selection: $date,
+                            selection: $item.date,
                             displayedComponents: [.date]
                             )
+                    .padding(5)
                     .datePickerStyle(.compact)
                 } header: {
                     Text("Choose Date")
+                }
+                
+//                Note Action
+                
+                Section {
+                    TextEditorUI(text: $item.note)
+                    } header: {
+                    Text("Note")
                 }
             }
             .navigationTitle("Edit the Item")
