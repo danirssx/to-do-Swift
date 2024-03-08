@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct ElemView: View {
-//    @Binding var todos: [Information]
-//    @Binding var selectedItem: UUID?
-    @State var item: Information = Information(task: "Lavar perros", type: Color.indigo)
-    @State private var date = Date()
+    @Binding var todos: [Information]
+    @State var item: Information
     
 //    Utilities
-    @FocusState private var nameIsFocused: Bool
-    private var options = ["Urgent", "Not Urgent", "Maths"]
+//    private var options = ["Urgent", "Not Urgent", "Maths"]
     
+//  Functionalities
+    @Environment (\.dismiss) var dismiss
+    @State private var showAlert: Bool = false
     
 //    Animations && Utilities
-    @State private var tap = false
+    @State private var tap: Bool = false
     
     var body: some View {
         NavigationView {
@@ -31,38 +31,21 @@ struct ElemView: View {
                         .font(.system(size: 20, design: .rounded))
                         .foregroundColor(Color(.systemGray2))
                         .disableAutocorrection(true)
-                        .focused($nameIsFocused)
                     
                 } header: {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.green)
-                        Text("About")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .bold, design: .rounded))
-                            .bold()
-                    }
+                    HeaderUI(backColor: .green, text: "About")
                 }
                 
 //                Tag
                 
                 Section {
                     Picker(selection: $item.tag, label: Text("Type of Task")) {
-                        ForEach(options, id: \.self) {
-                            option in
-                            Text(option)
-                        }
+                        Text("Danielito")
+                        Text("Robertico")
+                        Text("Manuelito")
                     }.pickerStyle(MenuPickerStyle())
                 } header: {
-
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(.cyan)
-                        Text("Tag")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15, weight: .bold, design: .rounded))
-                            .bold()
-                    }
+                    HeaderUI(backColor: .cyan, text: "Tag")
                 }
                 
 //                Date Picker
@@ -76,7 +59,7 @@ struct ElemView: View {
                     .padding(5)
                     .datePickerStyle(.compact)
                 } header: {
-                    Text("Choose Date")
+                    HeaderUI(backColor: .pink, text: "Date")
                 }
                 
 //                Note Action
@@ -84,22 +67,47 @@ struct ElemView: View {
                 Section {
                     TextEditorUI(text: $item.note)
                     } header: {
-                    Text("Note")
+                        HeaderUI(backColor: .orange, text: "Some Details")
                 }
             }
-            .navigationTitle("Edit the Item")
+            .toolbar  {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        self.showAlert = true
+                    }, label: {
+                        ButtonUI(backColor: .green, text: "Save")
+                    })
+                };
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        ButtonUI(backColor: .red, text: "Cancel")
+                    })
+                }
+            }
         }
+        .alert("Warning", isPresented: $showAlert, actions: {
+            Button {
+                dismiss()
+            } label: {
+                Text("Confirm")
+            }
+            
+            Button(role: .cancel, action: {}) {
+                Text("Cancel")
+            }
+        }, message: {
+            Text("Save Changes will delete the previous task. Are you sure?")
+        }
+        )
     }
     
-//    func changeItem() {
-//        if let index = todos.firstIndex(where: { $0.id == item.id }) {
-//            todos[index] = item
-//        }
-//    }
-}
-
-struct ElemView_Previews: PreviewProvider {
-    static var previews: some View {
-        ElemView()
+    func changeItem() {
+        if let index = todos.firstIndex(where: { $0.id == item.id }) {
+            todos[index] = item
+        }
     }
 }
+
+ 

@@ -14,7 +14,7 @@ struct TextEditorUI: View {
         ZStack(alignment: .leading) {
             if text.isEmpty {
                 VStack {
-                    Text("Some Details...")
+                    Text("Annotate...")
                         .padding(.top, 10)
                         .padding(.leading, 6)
                         .foregroundColor(Color(.systemGray3))

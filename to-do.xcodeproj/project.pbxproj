@@ -18,7 +18,8 @@
 		3A83E01F2B8AC670005C0108 /* to_doUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E01E2B8AC670005C0108 /* to_doUITestsLaunchTests.swift */; };
 		3A83E02C2B8ACE7E005C0108 /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A83E02B2B8ACE7E005C0108 /* TaskView.swift */; };
 		3A858DEC2B992D85008A661E /* TextEditorUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A858DEB2B992D85008A661E /* TextEditorUI.swift */; };
-		3A88939F2B98EFC900AFB2FD /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88939E2B98EFC900AFB2FD /* InputField.swift */; };
+		3A8622AD2B9A9D04004F6D34 /* ButtonUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8622AC2B9A9D04004F6D34 /* ButtonUI.swift */; };
+		3A8622AF2B9AACAA004F6D34 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8622AE2B9AACAA004F6D34 /* Information.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +54,8 @@
 		3A83E01E2B8AC670005C0108 /* to_doUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_doUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3A83E02B2B8ACE7E005C0108 /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		3A858DEB2B992D85008A661E /* TextEditorUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorUI.swift; sourceTree = "<group>"; };
-		3A88939E2B98EFC900AFB2FD /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		3A8622AC2B9A9D04004F6D34 /* ButtonUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUI.swift; sourceTree = "<group>"; };
+		3A8622AE2B9AACAA004F6D34 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				3A801D032B8C301C00E9CC90 /* ListView.swift */,
 				3A0703062B968FDB00C9A2AA /* ElemView.swift */,
 				3A83E02B2B8ACE7E005C0108 /* TaskView.swift */,
+				3A8622AE2B9AACAA004F6D34 /* Information.swift */,
 				3A83E0052B8AC670005C0108 /* Assets.xcassets */,
 				3A83E0072B8AC670005C0108 /* Preview Content */,
 			);
@@ -144,8 +147,8 @@
 		3A88939D2B98EFBA00AFB2FD /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				3A88939E2B98EFC900AFB2FD /* InputField.swift */,
 				3A858DEB2B992D85008A661E /* TextEditorUI.swift */,
+				3A8622AC2B9A9D04004F6D34 /* ButtonUI.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -282,9 +285,10 @@
 			files = (
 				3A801D042B8C301C00E9CC90 /* ListView.swift in Sources */,
 				3A858DEC2B992D85008A661E /* TextEditorUI.swift in Sources */,
+				3A8622AF2B9AACAA004F6D34 /* Information.swift in Sources */,
 				3A83E02C2B8ACE7E005C0108 /* TaskView.swift in Sources */,
+				3A8622AD2B9A9D04004F6D34 /* ButtonUI.swift in Sources */,
 				3A0703072B968FDB00C9A2AA /* ElemView.swift in Sources */,
-				3A88939F2B98EFC900AFB2FD /* InputField.swift in Sources */,
 				3A83E0042B8AC66F005C0108 /* ContentView.swift in Sources */,
 				3A83E0022B8AC66F005C0108 /* to_doApp.swift in Sources */,
 			);

@@ -9,15 +9,6 @@
 
 import SwiftUI
 
-struct Information: Identifiable, Equatable {
-    let id = UUID()
-    var task: String
-    var type: Color
-    var tag: String = ""
-    var date: Date = Date()
-    var note: String = ""
-    var completed: Bool = false
-}
 
 struct TaskView: View {
     @Binding var todos: [Information]

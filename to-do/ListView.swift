@@ -31,20 +31,20 @@ struct ListView: View {
                         )
                         // CheckMark
                         
-//                        HStack {
-//                            NavigationLink(destination: ElemView(todos: $todos, selectedItem: indexOfTodo(todo), item: todo))
-//                            {
-//                                Text(todo.task)
-//                                    .foregroundColor(todo.completed ? Color.primary : Color.gray)
-//                                    .tag(todo.task)
-//                            }
-//                            
-//                        }
-//                        .overlay(
-//                            Rectangle()
-//                                .fill(Color.clear)
-//                                .contentShape(Rectangle())
-//                        )
+                        HStack {
+                            NavigationLink(destination: ElemView(todos: $todos, item: todo))
+                            {
+                                Text(todo.task)
+                                    .foregroundColor(todo.completed ? Color.primary : Color.gray)
+                                    .tag(todo.task)
+                            }
+                            
+                        }
+                        .overlay(
+                            Rectangle()
+                                .fill(Color.clear)
+                                .contentShape(Rectangle())
+                        )
                         
                     }.listRowBackground(todo.completed ? todo.type.opacity(0.5) : todo.type.opacity(0.2))
                     

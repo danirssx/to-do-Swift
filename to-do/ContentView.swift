@@ -10,18 +10,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var todos: [Information] = [Information(task: "Lavar perros", type: Color.indigo), Information(task: "Regar las matas", type: Color.blue), Information(task: "Lavar el carro", type: Color.cyan)]
+    @State var todos: [Information] = articles
     
     @State var selectedItem: UUID?
     
     var body: some View {
         
         NavigationView {
-            VStack {
-                TaskView(todos: $todos)
-                    .padding()
+//                TaskView(todos: $todos)
+//                    .padding()
                 ListView(todos: $todos, selectedItem: $selectedItem)
-            }
+            
             .navigationTitle("To-Do App")
         }
     }
