@@ -90,6 +90,7 @@ struct ElemView: View {
         .alert("Warning", isPresented: $showAlert, actions: {
             Button {
                 dismiss()
+                changeItem()
             } label: {
                 Text("Confirm")
             }

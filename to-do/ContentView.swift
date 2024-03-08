@@ -9,6 +9,10 @@
 
 import SwiftUI
 
+class NavigationManager: ObservableObject {
+    @Published var isShowingSubContentView = false
+}
+
 struct ContentView: View {
     @State var todos: [Information] = articles
     @State var selectedItem: UUID?
@@ -20,7 +24,6 @@ struct ContentView: View {
                     VStack {
                             
                         ListModalView(todos: $todos, selectedItem: $selectedItem)
-
                     
 //                        Another Text
                         
@@ -41,7 +44,10 @@ struct ListModalView: View {
     
     var body: some View {
         Section {
+//            ORIGINAL ------
             NavigationLink(destination: ListView(todos: $todos, selectedItem: $selectedItem)) {
+//            TESTING -----
+//            NavigationLink(destination: ListView())
                 ZStack {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 350, height: 175)

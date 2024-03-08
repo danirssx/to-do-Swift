@@ -10,11 +10,29 @@
 import SwiftUI
 
 struct ListView: View {
+//    Original
+    @Binding var todos: [Information]
+    @Binding var selectedItem: UUID?
+    
+//    Testing
+//    @State var todos: [Information] = articles
+//    @State var selectedItem: UUID? = articles[1].id
+
+    var body: some View {
+        VStack {
+            ListModalUI(todos: $todos, selectedItem: $selectedItem)
+        }
+    }
+    
+}
+
+struct ListModalUI: View {
+    
+//    Testing
     @Binding var todos: [Information]
     @Binding var selectedItem: UUID?
     
     var body: some View {
-        NavigationView {
             List {
                 ForEach(todos) { todo in
                     HStack {
@@ -54,10 +72,6 @@ struct ListView: View {
                 
             }.navigationBarItems(trailing: EditButton())
         
-        }
-        .cornerRadius(20)
-        .padding()
-        
     }
     
     func indexOfTodo(_ list: Information) -> Binding<UUID?> {
@@ -69,20 +83,14 @@ struct ListView: View {
         if let index = todos.firstIndex(where: { $0.id == todo.id }) {
             todos[index].completed.toggle()
         }
-}
-    
-    
+    }
     func delete(at offsets: IndexSet) {
         todos.remove(atOffsets: offsets)
     }
-    
-
-    
-    
 }
-//
+
 //struct ListView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ListView()
 //    }
-//
+//}
