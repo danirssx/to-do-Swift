@@ -106,12 +106,10 @@
 		3A83E0002B8AC66F005C0108 /* to-do */ = {
 			isa = PBXGroup;
 			children = (
+				3A8AD9F62B9B5436003A4CA5 /* Lists */,
 				3A88939D2B98EFBA00AFB2FD /* UIViews */,
 				3A83E0012B8AC66F005C0108 /* to_doApp.swift */,
 				3A83E0032B8AC66F005C0108 /* ContentView.swift */,
-				3A801D032B8C301C00E9CC90 /* ListView.swift */,
-				3A0703062B968FDB00C9A2AA /* ElemView.swift */,
-				3A83E02B2B8ACE7E005C0108 /* TaskView.swift */,
 				3A8622AE2B9AACAA004F6D34 /* Information.swift */,
 				3A83E0052B8AC670005C0108 /* Assets.xcassets */,
 				3A83E0072B8AC670005C0108 /* Preview Content */,
@@ -151,6 +149,16 @@
 				3A8622AC2B9A9D04004F6D34 /* ButtonUI.swift */,
 			);
 			path = UIViews;
+			sourceTree = "<group>";
+		};
+		3A8AD9F62B9B5436003A4CA5 /* Lists */ = {
+			isa = PBXGroup;
+			children = (
+				3A801D032B8C301C00E9CC90 /* ListView.swift */,
+				3A0703062B968FDB00C9A2AA /* ElemView.swift */,
+				3A83E02B2B8ACE7E005C0108 /* TaskView.swift */,
+			);
+			path = Lists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
